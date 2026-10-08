@@ -129,7 +129,8 @@ sent to the notification daemon over D-Bus by the system `python3` (with
 PyGObject, part of Omarchy), which gets the event's title, calendar, place
 and link in its environment rather than its arguments, so other users on the
 machine cannot read them from the process list. `hyprctl` binds the
-quick-add shortcut.
+quick-add shortcut. A week's file on disk is the projected event list:
+notes, guests, and journal text are left out.
 
 ## Keys
 
