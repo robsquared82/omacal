@@ -188,7 +188,7 @@ at once, so it can be edited there too.
 | `timeFormat` | `auto` | `auto`, `12` or `24`. |
 | `liveSync` | `true` | Keep one `hey watch` per shell for instant updates. A custom bar that cannot see the plugin service polls instead. |
 | `refreshIntervalSec` | `300` | Polling fallback, 30 to 3600. |
-| `hiddenCalendars` | `""` | Comma-separated calendar names to leave out. |
+| `hiddenCalendars` | `""` | Comma-separated calendar names to leave out of the panel and of the cached weeks. Un-hiding one waits for the next refresh. |
 
 The panel also stores `weekStartDay`, `birthYear`, `lifeExpectancy` (stock)
 and `lastCalendarId` (the calendar the last new event went on).
