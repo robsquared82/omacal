@@ -949,9 +949,10 @@ function notificationBody(event, nowMs, hour24) {
 // only this user can read, and the notification is sent over D-Bus from
 // Python instead of through notify-send, which only takes it as arguments.
 // The system Python, because it has PyGObject on Omarchy and a mise or
-// virtualenv one first on PATH may not. The title and body are escaped
-// before they go into that environment, because the notification body is
-// drawn as markup.
+// virtualenv one first on PATH may not. The body is escaped before it goes
+// into that environment, because Omarchy draws the notification body as
+// markup. The title is left as written. Omarchy draws the summary as plain
+// text, and escaping it would show the entities instead of the characters.
 //
 // Every monitor's bar runs its own widget, and each would send the same
 // reminder. The first to create the reminder's marker directory claims it
@@ -1076,7 +1077,7 @@ function notifyCommand(event, nowMs, hour24, fallbackLink, remindMs) {
   return {
     command: ["/usr/bin/python3", "-c", notifyScript],
     environment: {
-      OMACAL_TITLE: escapeMarkup(String(event.title || "")),
+      OMACAL_TITLE: String(event.title || ""),
       OMACAL_BODY: escapeMarkup(notificationBody(event, nowMs, hour24)),
       OMACAL_LINK: link || "",
       OMACAL_MARKER: reminderMarker(reminderKey(event, remindMs === undefined ? nowMs : remindMs)),
